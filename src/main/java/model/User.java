@@ -51,8 +51,4 @@ public class User {
 	@JoinColumn(name = "role_id")
 	private Role role;
 
-	public static Object builder() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

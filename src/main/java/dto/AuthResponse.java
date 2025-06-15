@@ -1,12 +1,10 @@
 package dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class AuthResponse {
 	private String token;
 	private String type = "Bearer";
@@ -15,14 +13,11 @@ public class AuthResponse {
 	private String role;
 	private String email;
 
-	public AuthResponse(String token, String type, String username, String fullName, String role, String email) {
-		super();
+	public AuthResponse(String token, String username, String fullName, String role, String email) {
 		this.token = token;
-		this.type = type;
 		this.username = username;
 		this.fullName = fullName;
 		this.role = role;
 		this.email = email;
 	}
-
 }

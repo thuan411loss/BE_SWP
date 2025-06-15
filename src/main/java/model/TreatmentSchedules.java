@@ -14,12 +14,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @Table(name = "treatment_schedules")
 public class TreatmentSchedules {
 	@Id
@@ -45,9 +47,5 @@ public class TreatmentSchedules {
 
 	@OneToMany(mappedBy = "treatmentSchedule", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<TreatmentProgress> treatmentProgresses;
-
-	// Constructors
-	public TreatmentSchedules() {
-	}
 
 }
