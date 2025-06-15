@@ -15,6 +15,8 @@ import dto.LoginRequest;
 import dto.RegisterRequest;
 import dto.UserProfileResponse;
 import model.Account;
+import model.Role;
+import model.User;
 import repository.AccountRepository;
 import repository.UserRepository;
 import util.JwtUtil;
@@ -41,7 +43,6 @@ public class AccountService {
 		try {
 			Authentication authentication = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-
 			Account account = accountRepository.findByUsername(request.getUsername())
 					.orElseThrow(() -> new BadCredentialsException("Tài khoản không tồn tại"));
 

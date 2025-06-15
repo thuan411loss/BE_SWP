@@ -9,19 +9,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
 public class Examination {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer exam_id;
+	private Integer examId;
 
 	@ManyToOne
 	@JoinColumn(name = "booking_id", nullable = false)
 	private Booking booking;
 
-	private LocalDateTime exam_date;
+	private LocalDateTime examDate;
 
 	@Column(columnDefinition = "TEXT")
 	private String diagnosis;
@@ -29,5 +35,4 @@ public class Examination {
 	@Column(columnDefinition = "TEXT")
 	private String recommendation;
 
-	// Getters and Setters
 }

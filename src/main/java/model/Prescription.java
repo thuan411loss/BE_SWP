@@ -5,11 +5,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "prescription")
+@Getter
+@Setter
+@AllArgsConstructor
+
 public class Prescription {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,48 +38,4 @@ public class Prescription {
 	@Column(name = "usage_instruction", columnDefinition = "TEXT")
 	private String usageInstruction;
 
-	// Constructors
-	public Prescription() {
-	}
-
-	// Getters and Setters
-	public Integer getPrescriptionId() {
-		return prescriptionId;
-	}
-
-	public void setPrescriptionId(Integer prescriptionId) {
-		this.prescriptionId = prescriptionId;
-	}
-
-	public MedicalResults getMedicalResult() {
-		return medicalResults;
-	}
-
-	public void setMedicalResult(MedicalResults medicalResults) {
-		this.medicalResults = medicalResults;
-	}
-
-	public String getMedicineName() {
-		return medicineName;
-	}
-
-	public void setMedicineName(String medicineName) {
-		this.medicineName = medicineName;
-	}
-
-	public String getDosage() {
-		return dosage;
-	}
-
-	public void setDosage(String dosage) {
-		this.dosage = dosage;
-	}
-
-	public String getUsageInstruction() {
-		return usageInstruction;
-	}
-
-	public void setUsageInstruction(String usageInstruction) {
-		this.usageInstruction = usageInstruction;
-	}
 }

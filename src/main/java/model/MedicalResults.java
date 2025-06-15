@@ -14,8 +14,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
 @Table(name = "medical_results")
 public class MedicalResults {
 	@Id
@@ -49,58 +55,4 @@ public class MedicalResults {
 	@OneToMany(mappedBy = "medicalResult", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<TreatmentRecord> treatmentRecords;
 
-	// Constructors
-	public MedicalResults() {
-	}
-
-	// Getters and Setters
-	public Integer getResultId() {
-		return resultId;
-	}
-
-	public void setResultId(Integer resultId) {
-		this.resultId = resultId;
-	}
-
-	public Examination getExamination() {
-		return examination;
-	}
-
-	public void setExamination(Examination examination) {
-		this.examination = examination;
-	}
-
-	public String getTestName() {
-		return testName;
-	}
-
-	public void setTestName(String testName) {
-		this.testName = testName;
-	}
-
-	public String getResultValue() {
-		return resultValue;
-	}
-
-	public void setResultValue(String resultValue) {
-		this.resultValue = resultValue;
-	}
-
-	public LocalDate getResultDate() {
-		return resultDate;
-	}
-
-	public void setResultDate(LocalDate resultDate) {
-		this.resultDate = resultDate;
-	}
-
-	public User getStaff() {
-		return staff;
-	}
-
-	public void setStaff(User staff) {
-		this.staff = staff;
-	}
-
-	// Additional getters and setters for relationships...
 }
