@@ -3,16 +3,23 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "treatment_schedules")
 public class TreatmentSchedules {
 	@Id
@@ -43,60 +50,4 @@ public class TreatmentSchedules {
 	public TreatmentSchedules() {
 	}
 
-	// Getters and Setters
-	public Integer getScheduleId() {
-		return scheduleId;
-	}
-
-	public void setScheduleId(Integer scheduleId) {
-		this.scheduleId = scheduleId;
-	}
-
-	public MedicalResults getMedicalResult() {
-		return medicalResults;
-	}
-
-	public void setMedicalResult(MedicalResults medicalResults) {
-		this.medicalResults = medicalResults;
-	}
-
-	public LocalDate getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
-	}
-
-	public LocalDate getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(LocalDate endDate) {
-		this.endDate = endDate;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public List<TreatmentProgress> getTreatmentProgresses() {
-		return treatmentProgresses;
-	}
-
-	public void setTreatmentProgresses(List<TreatmentProgress> treatmentProgresses) {
-		this.treatmentProgresses = treatmentProgresses;
-	}
 }
