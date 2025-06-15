@@ -1,11 +1,10 @@
 package util;
 
 import java.util.Date;
+import javax.crypto.SecretKey;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-import com.mysql.cj.x.protobuf.MysqlxExpect.Open.Condition.Key;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -20,7 +19,7 @@ public class JwtUtil {
 	@Value("${jwt.expiration:86400000}") // 24 hours
 	private Long jwtExpiration;
 
-	private Key getSigningKey() {
+	private SecretKey getSigningKey() {
 		return Keys.hmacShaKeyFor(jwtSecret.getBytes());
 	}
 

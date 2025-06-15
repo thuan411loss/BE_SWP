@@ -4,10 +4,13 @@ import java.time.LocalDate;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class RegisterRequest {
 	@NotBlank(message = "Họ tên không được để trống")
 	private String fullName;
@@ -16,8 +19,8 @@ public class RegisterRequest {
 
 	private LocalDate dateOfBirth;
 
-//	@Pattern(regexp = "^[0-9+\\-\\s]{10,15}$", message = "Số điện thoại không hợp lệ")
-//	private String phone;
+	@Pattern(regexp = "^[0-9+\\-\\s]{10,15}$", message = "Số điện thoại không hợp lệ")
+	private String phone;
 
 	@Email(message = "Email không hợp lệ")
 	@NotBlank(message = "Email không được để trống")
@@ -35,13 +38,4 @@ public class RegisterRequest {
 
 	private Integer roleId = 3; // Default role USER
 
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

@@ -1,9 +1,14 @@
 package dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+
 public class LoginRequest {
 	@NotBlank(message = "Username không được để trống")
 	private String username;
@@ -11,13 +16,4 @@ public class LoginRequest {
 	@NotBlank(message = "Password không được để trống")
 	private String password;
 
-	public Object getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

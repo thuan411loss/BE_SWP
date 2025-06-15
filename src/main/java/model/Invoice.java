@@ -15,12 +15,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Setter
 @Getter
+@AllArgsConstructor
 @Table(name = "invoice")
 public class Invoice {
 	@Id
@@ -43,10 +45,5 @@ public class Invoice {
 
 	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Payment> payments;
-
-	// Constructors
-	public Invoice() {
-		this.issuedDate = LocalDateTime.now();
-	}
 
 }

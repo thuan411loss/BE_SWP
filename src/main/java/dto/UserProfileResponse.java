@@ -2,9 +2,15 @@ package dto;
 
 import java.time.LocalDate;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserProfileResponse {
 	private String fullName;
 	private String gender;
@@ -14,23 +20,5 @@ public class UserProfileResponse {
 	private String address;
 	private String role;
 	private String username;
-
-	public UserProfileResponse(String fullName, String gender, LocalDate dateOfBirth, String phone, String email,
-			String address, String role, String username) {
-		super();
-		this.fullName = fullName;
-		this.gender = gender;
-		this.dateOfBirth = dateOfBirth;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
-		this.role = role;
-		this.username = username;
-	}
-
-	public void setUsername(String username2) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
